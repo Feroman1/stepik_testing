@@ -1,6 +1,7 @@
 from selenium import webdriver
 import time
 import unittest
+import pytest
 
 class TestAbs(unittest.TestCase):
     def test_1(self):
@@ -30,7 +31,7 @@ class TestAbs(unittest.TestCase):
         welcome_text = welcome_text_elt.text
 
             # с помощью assert проверяем, что ожидаемый текст совпадает с текстом на странице сайта
-        self.assertEqual(welcome_text, 'Congratulations! You have successfully registered!', 'test1')
+        assert welcome_text == 'Congratulations! You have successfully registered!', 'test1'
 
             # ожидание чтобы визуально оценить результаты прохождения скрипта
         time.sleep(5)
@@ -62,7 +63,7 @@ class TestAbs(unittest.TestCase):
         welcome_text = welcome_text_elt.text
 
             # с помощью assert проверяем, что ожидаемый текст совпадает с текстом на странице сайта
-        self.assertEqual(welcome_text, 'Congratulations! You have successfully registered!', 'test2')
+        assert welcome_text == 'Congratulations! You have successfully registered!', 'test2'
 
             # ожидание чтобы визуально оценить результаты прохождения скрипта
         time.sleep(5)
@@ -70,4 +71,4 @@ class TestAbs(unittest.TestCase):
         browser.quit()
 
 if __name__ == "__main__":
-    unittest.main()
+    pytest.main()
